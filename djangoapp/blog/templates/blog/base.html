@@ -4,6 +4,12 @@
   {% include 'blog/partials/_head.html' %}
 </head>
 <body>
+  {% include 'blog/partials/_header.html' %}
+
   {% block content %}{% endblock content %}
+  
+  {% include 'blog/partials/_pagination.html' %}
+  
+  {% include 'blog/partials/_footer.html' %}
 </body>
 </html>
