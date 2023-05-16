@@ -5,4 +5,8 @@
 
 <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
 
+{% if site_setup.favicon %}
+  <link rel="shortcut icon" href="{{ site_setup.favicon.url }}" type="image/png">
+{% endif %}
+
 <title>TESTANDO</title>
