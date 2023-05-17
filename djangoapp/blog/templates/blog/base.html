@@ -3,11 +3,7 @@
 <head>
   {% include 'blog/partials/_head.html' %}
 </head>
-<body>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores et necessitatibus consectetur deserunt! Expedita iure recusandae molestias porro dicta, ipsum aspernatur, debitis culpa hic facilis deserunt reiciendis fugiat quas eius!</p>
-
-  <h1>Exemplo: {{ site_setup.title }}</h1>
-  
+<body class="dark-theme"> 
   {% include 'blog/partials/_header.html' %}
 
   {% block content %}{% endblock content %}
@@ -15,5 +11,7 @@
   {% include 'blog/partials/_pagination.html' %}
   
   {% include 'blog/partials/_footer.html' %}
+
+  {% include 'blog/partials/_temp.html' %}
 </body>
 </html>

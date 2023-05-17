@@ -1,7 +1,57 @@
 :root {
-  --clr-white: 213 100% 98%;
-  --clr-black: 213 100% 5%;
-  --clr-primary: 213 100% 50%;
+  /* Colors */
+  --clr-base: 213 100%;
+
+  --clr-white: var(--clr-base) 99%;
+  --clr-black: var(--clr-base) 2%;
+
+  --clr-primary-ltst: var(--clr-base) 80%;
+  --clr-primary-ltr: var(--clr-base) 70%;
+  --clr-primary-lt: var(--clr-base) 60%;
+  --clr-primary: var(--clr-base) 50%;
+  --clr-primary-dk: var(--clr-base) 40%;
+  --clr-primary-dkr: var(--clr-base) 30%;
+  --clr-primary-dkst: var(--clr-base) 20%;
+
+  /* Font-family */
+  --ff-regular: Georgia, 'Times New Roman', Times, serif;
+  --ff-headings: Georgia, 'Times New Roman', Times, serif;
+  --ff-mono: 'Courier New', Courier, monospace;
+
+  /* Font-Sizes */
+  /* https://royalfig.github.io/fluid-typography-calculator/ */
+  --fs-smlst: clamp(1.2rem, 1.092307692307692rem + 0.256410256410256vw, 1.4rem);
+  --fs-smlr: clamp(1.4rem, 1.292307692307692rem + 0.2564102564102566vw, 1.6rem);
+  --fs-sm: clamp(1.6rem, 1.4923076923076923rem + 0.25641025641025633vw, 1.8rem);
+  --fs-base: clamp(1.8rem, 1.6923076923076923rem + 0.25641025641025633vw, 2rem);
+  --fs-bg: clamp(2rem, 1.7846153846153847rem + 0.5128205128205127vw, 2.4rem);
+  --fs-bgr: clamp(2.4rem, 1.969230769230769rem + 1.025641025641026vw, 3.2rem);
+  --fs-bgst: clamp(3.2rem, 2.876923076923rem + 0.7692307692307687vw, 3.8rem);
+
+  --fs-h1: clamp(3.8rem, 3.2615384615384615rem + 1.282051282051282vw, 4.8rem);
+  --fs-h2: clamp(2.8rem, 1.938461538461538rem + 2.051282051282052vw, 4.4rem);
+  --fs-h3: clamp(2.4rem, 1.969230769230769rem + 1.025641025641026vw, 3.2rem);
+  --fs-h4: clamp(2.2rem, 1.8769230769230774rem + 0.7692307692307687vw, 2.8rem);
+  --fs-h5: clamp(1.8rem, 1.476923076923077rem + 0.769230769230769vw, 2.4rem);
+  --fs-h6: clamp(1.6rem, 1.2769230769230768rem + 0.7692307692307694vw, 2.2rem);
+
+  /* Line-Heights */
+  --lh-regular: 1.5;
+  --lh-headings: 1.2;
+  --lh-mono: 1.2;
+
+  /* Spacings */
+  --spacing-smlst: 1.5rem;
+  --spacing-smlr: 2rem;
+  --spacing-sm: 2.5rem;
+  --spacing-base: 3rem;
+  --spacing-bg: 4rem;
+  --spacing-bgr: 5rem;
+  --spacing-bgst: 6rem;
+
+  /* max-width */
+  --mw-grid: 120rem;
+  --mw-post: 90rem;
 }
 
 html {
@@ -11,7 +61,74 @@ html {
 body {
   background-color: hsl(var(--clr-white));
   color: hsl(var(--clr-black));
-  font-size: 1.6rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 20px; /* Fallback value */
+  font-size: var(--fs-base);
+  font-family: var(--ff-regular);
+  line-height: var(--lh-regular);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: hsl(var(--clr-primary));
+  text-decoration: none;
+}
+
+a:hover {
+  color: hsl(var(--clr-primary-dk));
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--ff-headings);
+  line-height: var(--lh-headings);
+  margin: var(--spacing-base) 0;
+}
+
+h1 {
+  font-size: 44px; /* Fallback value */
+  font-size: var(--fs-h1);
+}
+
+h2 {
+  font-size: 38px; /* Fallback value */
+  font-size: var(--fs-h2);
+}
+
+h3 {
+  font-size: 34px; /* Fallback value */
+  font-size: var(--fs-h3);
+}
+
+h4 {
+  font-size: 28px; /* Fallback value */
+  font-size: var(--fs-h4);
+}
+
+h5 {
+  font-size: 24px; /* Fallback value */
+  font-size: var(--fs-h5);
+}
+
+h6 {
+  font-size: 20px; /* Fallback value */
+  font-size: var(--fs-h6);
+}
+
+pre {
+  max-width: 100%;
+  overflow-x: auto;
+  line-height: var(--lh-mono);
+  font-size: var(--fs-sm);
+}
+
+pre,
+code {
+  font-family: var(--ff-mono);
 }
