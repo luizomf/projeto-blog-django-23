@@ -5,13 +5,19 @@
 </head>
 <body>
   <div class="blog-wrapper">
-    {% include 'blog/partials/_header.html' %}
+    {% if site_setup.show_header %}
+      {% include 'blog/partials/_header.html' %}
+    {% endif %}
 
     {% block content %}{% endblock content %}
     
-    {% include 'blog/partials/_pagination.html' %}
-    
-    {% include 'blog/partials/_footer.html' %}
+    {% if site_setup.show_pagination %}
+      {% include 'blog/partials/_pagination.html' %}
+    {% endif %}
+
+    {% if site_setup.show_footer %}
+      {% include 'blog/partials/_footer.html' %}
+    {% endif %}
   </div>
 </body>
 </html>

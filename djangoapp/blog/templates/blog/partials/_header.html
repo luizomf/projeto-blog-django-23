@@ -3,54 +3,53 @@
     <div class="section-gap">
 
       <h1 class="blog-title center pb-base">
-        <a class="blog-link" href="/"> Blog do Luiz </a>
+        <a class="blog-link" href="/">{{ site_setup.title }}</a>
       </h1>
       
-      <p class="blog-description pb-base center">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ipsam
-        neque explicabo sequi, voluptas saepe porro atque provident, reiciendis
-        natus harum labore nisi eum consectetur cumque minima dolorem adipisci?
-        Dolores?
-      </p>
+      {% if site_setup.show_description %}
+        <p class="blog-description pb-base center">{{ site_setup.description }}</p>
+      {% endif %}
 
-      <div class="search pb-base center">
-        <form class="search-form" action="#" method="get">
-          <div class="search-content">
-            <label class="sr-only" id="search-label" for="search-input">Search</label>
-            <input
-              class="search-input"
-              type="search"
-              name="search"
-              id="search-input"
-              placeholder="Search"
-              value="Non risu potius quam oratione eiciendum? Quo pleb "
-            >
-            <button class="search-btn" type="submit" aria-labelledby="search-label">
-              <i class="fa fa-search"></i>
-            </button>
-          </div>
-        </form>
-      </div>
+      {% if site_setup.show_search %}
+        <div class="search pb-base center">
+          <form class="search-form" action="#" method="get">
+            <div class="search-content">
+              <label class="sr-only" id="search-label" for="search-input">Search</label>
+              <input
+                class="search-input"
+                type="search"
+                name="search"
+                id="search-input"
+                placeholder="Search"
+                value="Non risu potius quam oratione eiciendum? Quo pleb "
+              >
+              <button class="search-btn" type="submit" aria-labelledby="search-label">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      {% endif %}
 
-      <nav class="menu">
-        <ul class="menu-items">
-          <li class="menu-item">
-            <a class="menu-link" href="/post/">Post</a>
-          </li>
-          <li class="menu-item">
-            <a class="menu-link" href="/page/">Page</a>
-          </li>
-          <li class="menu-item">
-            <a class="menu-link" href="#">About us</a>
-          </li>
-          <li class="menu-item">
-            <a class="menu-link" href="#">Contact</a>
-          </li>
-          <li class="menu-item">
-            <a class="menu-link" href="#">Support</a>
-          </li>
-        </ul>
-      </nav>
+      {% if site_setup.show_menu %}
+        <nav class="menu">
+          <ul class="menu-items">
+            {% for link in site_setup.menulink_set.all %}
+              <li class="menu-item">
+                {% if link.new_tab %}
+                  <a target="_blank" class="menu-link" href="{{ link.url_or_path }}">
+                    {{ link.text }}
+                  </a>
+              {% else %}
+                  <a class="menu-link" href="{{ link.url_or_path }}">
+                    {{ link.text }}
+                  </a>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      {% endif %}
       
     </div>
   </div>
