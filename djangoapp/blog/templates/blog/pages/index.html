@@ -1,5 +1,17 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-  <h1>Olá mundo</h1>
+  <main class="main-content section-wrapper">
+    <div class="section-content-wide">
+      <div class="section-gap">
+
+        <div class="card-grid">
+          {% for i in ""|ljust:"9" %}
+            {% include 'blog/partials/_post-card.html' with i=forloop.counter0 %}
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+  </main>
 {% endblock content %}

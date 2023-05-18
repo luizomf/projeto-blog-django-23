@@ -1,5 +1,89 @@
-{% extends 'blog/base.html' %}
+{% extends 'blog/base.html' %} 
 
 {% block content %}
-  <h1>POST</h1>
+<main class="main-content single-post section-wrapper">
+  <div class="single-post-content section-content-narrow">
+    <div class="single-post-gap section-gap">
+      <div class="single-post-cover pb-base">
+        <img loading="lazy" src="https://picsum.photos/1920/1080/?rand=12" alt="Change me">
+      </div>
+
+      <h2 class="single-post-title pb-base center">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </h2>
+
+      <div class="post-meta pb-base">
+        <div class="post-meta-item">
+          <a class="post-meta-link" href="#">
+            <i class="fa-solid fa-user"></i>
+            <span>
+              Author Full Name
+            </span>
+          </a>
+        </div>
+        <div class="post-meta-item">
+          <a class="post-meta-link" href="#">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>
+              20/04/2023
+            </span>
+          </a>
+        </div>
+        <div class="post-meta-item">
+          <a class="post-meta-link" href="#">
+            <i class="fa-solid fa-tag"></i>
+            <span>
+              Categoria
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <p class="single-post-excerpt pb-base">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, vero
+        fugiat eum perferendis accusamus enim quos obcaecati. Voluptates a vel
+        obcaecati ipsa in dignissimos facere odio et, ab provident assumenda!
+      </p>
+
+      <div class="separator"></div>
+
+      <div class="single-post-content">
+        {% include 'blog/partials/_temp.html' %} 
+      
+        <div class="post-tags">
+          <span>Tags: </span>
+
+          <a class="post-tag-link" href="#">
+            <i class="fa-solid fa-link"></i>
+            <span>Testando</span>
+          </a>
+
+          <a class="post-tag-link" href="#">
+            <i class="fa-solid fa-link"></i>
+            <span>Atenção</span>
+          </a>
+
+          <a class="post-tag-link" href="#">
+            <i class="fa-solid fa-link"></i>
+            <span>Obrigado</span>
+          </a>
+
+          <a class="post-tag-link" href="#">
+            <i class="fa-solid fa-link"></i>
+            <span>Educação</span>
+          </a>
+
+          <a class="post-tag-link" href="#">
+            <i class="fa-solid fa-link"></i>
+            <span>Python</span>
+          </a>
+
+        </div>
+        
+      </div>
+    
+    </div>
+  </div>
+</main>
+
 {% endblock content %}
