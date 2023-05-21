@@ -40,7 +40,7 @@
           <span class="post-meta-link">
             <i class="fa-solid fa-calendar-days"></i>
             <span>
-              20/04/2023
+              {{ post.created_at | date:'d/m/Y \à\s H:i' }}
             </span>
           </span>
         </div>
