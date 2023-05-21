@@ -4,39 +4,61 @@
 <main class="main-content single-post section-wrapper">
   <div class="single-post-content section-content-narrow">
     <div class="single-post-gap section-gap">
-      <div class="single-post-cover pb-base">
-        <img loading="lazy" src="https://picsum.photos/1920/1080/?rand=12" alt="Change me">
-      </div>
+
+      {% if post.cover and post.cover_in_post_content %}
+        <div class="single-post-cover pb-base">
+          <img 
+            loading="lazy" 
+            src="{{ post.cover.url }}" 
+            alt="{{ post.title }}"
+          >
+        </div>
+      {% endif %}
 
       <h2 class="single-post-title pb-base center">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        {{ post.title }}
       </h2>
 
       <div class="post-meta pb-base">
         <div class="post-meta-item">
-          <a class="post-meta-link" href="#">
+          <a 
+            class="post-meta-link" 
+            href="{% url 'blog:created_by' post.created_by.pk  %}"
+          >
             <i class="fa-solid fa-user"></i>
             <span>
-              Author Full Name
+              {% if post.created_by.first_name %}
+                {{ post.created_by.first_name }} 
+                {{ post.created_by.last_name }}
+              {% else %}
+                {{ post.created_by.username }}
+              {% endif %}
             </span>
           </a>
         </div>
         <div class="post-meta-item">
-          <a class="post-meta-link" href="#">
+          <span class="post-meta-link">
             <i class="fa-solid fa-calendar-days"></i>
             <span>
               20/04/2023
             </span>
-          </a>
+          </span>
         </div>
-        <div class="post-meta-item">
-          <a class="post-meta-link" href="#">
-            <i class="fa-solid fa-tag"></i>
-            <span>
-              Categoria
-            </span>
-          </a>
-        </div>
+
+        {% if post.category %}
+          <div class="post-meta-item">
+            <a 
+              class="post-meta-link" 
+              href="{% url 'blog:category' post.category.slug  %}"
+            >
+              <i class="fa-solid fa-tag"></i>
+              <span>
+                {{ post.category.name }}
+              </span>
+            </a>
+          </div>
+        {% endif %}
+      
       </div>
 
       <p class="single-post-excerpt pb-base">
