@@ -62,15 +62,13 @@
       </div>
 
       <p class="single-post-excerpt pb-base">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, vero
-        fugiat eum perferendis accusamus enim quos obcaecati. Voluptates a vel
-        obcaecati ipsa in dignissimos facere odio et, ab provident assumenda!
+        {{ post.excerpt | safe }}
       </p>
 
       <div class="separator"></div>
 
       <div class="single-post-content">
-        {% include 'blog/partials/_temp.html' %} 
+        {{ post.content | safe  }} 
       
         <div class="post-tags">
           <span>Tags: </span>
